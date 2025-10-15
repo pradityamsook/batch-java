@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: read-csv-job-runner
+spec:
+  template:
+    spec:
+      containers:
+        - name: java-batch-container
+          image: praditleon/java-batch:v8.4
+          args:
+            - "--spring.batch.job.name=importCoffeeJob"
+      restartPolicy: OnFailure
+  backoffLimit: 4
