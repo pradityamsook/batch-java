@@ -2,13 +2,13 @@ package com.example.batch_java.runner;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.core.ApplicationContext;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -29,7 +29,7 @@ public class BatchJobRunner implements CommandLineRunner {
         }
 
         String jobName = args[0];
-        Job job = (Job) context.getAttribute(jobName);
+        Job job = (Job) context.getBean(jobName);
 
         JobParameters params = new JobParametersBuilder()
                 .addLong("run.id", System.currentTimeMillis())
