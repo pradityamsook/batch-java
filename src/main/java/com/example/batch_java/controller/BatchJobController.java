@@ -1,6 +1,5 @@
 package com.example.batch_java.controller;
 
-import jdk.jpackage.internal.ApplicationLayout;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.batch.core.Job;
